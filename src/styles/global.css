@@ -1,0 +1,52 @@
+:root {
+  /* Wrap size final.1280px */
+  --wrap-size: 640px;
+
+  /* Primary color */
+  --color-mg: #006580;
+
+  /* Secondary color */
+  --color-second1: #E74C3C;
+  --color-second2: #03A156;
+
+  /* Black, Grey, White color */
+  --gs1: #ffffff;
+  --gs2: #FAFAFA;
+  --gs3: #F5F5F5;
+  --gs4: #EEEEEE;
+  --gs5: #DDDDDD;
+  --gs6: #BBBBBB;
+  --gs7: #777777;
+  --gs8: #333333;
+  --gs9: #202020;
+  
+  /* Size */
+  --size10: min(2.6667vw, 20px);
+  --size30: min(2.6667vw, 60px);
+}
+
+/* Font styles */
+[class^="pt1"] { font-family: "Pretendard-Thin", sans-serif; }
+[class^="pt2"] { font-family: "Pretendard-ExtraLight", sans-serif; }
+[class^="pt3"] { font-family: "Pretendard-Light", sans-serif; }
+[class^="pt4"] { font-family: "Pretendard-Regular", sans-serif; }
+[class^="pt5"] { font-family: "Pretendard-Medium", sans-serif; }
+[class^="pt6"] { font-family: "Pretendard-SemiBold", sans-serif; }
+[class^="pt7"] { font-family: "Pretendard-Bold", sans-serif; }
+[class^="pt8"] { font-family: "Pretendard-ExtraBold", sans-serif; }
+[class^="pt9"] { font-family: "Pretendard-Black", sans-serif; }
+
+[class*="_28"] { font-size: 28px; line-height: 38px; }
+[class*="_24"] { font-size: 24px; line-height: 34px; }
+[class*="_20"] { font-size: 20px; line-height: 28px; }
+[class*="_17"] { font-size: 17px; line-height: 24px; }
+[class*="_16"] { font-size: 16px; line-height: 22px; }
+[class*="_15"] { font-size: 15px; line-height: 22px; }
+[class*="_14"] { font-size: 14px; line-height: 20px; }
+[class*="_12"] { font-size: 12px; line-height: 18px; }
+[class*="_11"] { font-size: 11px; line-height: 12px; }
+[class*="_10"] { font-size: 11px; }
+
+[class*="_18price"] { font-size: 18px; line-height: 18px; }
+[class*="_16price"] { font-size: 16px; line-height: 16px; }
+[class*="_14price"] { font-size: 14px; line-height: 14px; }
