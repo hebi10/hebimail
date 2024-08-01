@@ -1,0 +1,93 @@
+.header{
+  padding: 10px 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.header .headBox{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 140px;
+  padding: 0 20px;
+}
+
+.header .headBox :global(li){
+  cursor: pointer;
+}
+
+.header .headBox .leftBox{
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.header .headBox .leftBox span{
+  display: inline-block;
+  height: 2px;
+  background-color: #000;
+  border-radius: 99px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.header .headBox .leftBox span:nth-child(1){
+  top: 33%;
+  width: 66%;
+}
+
+.header .headBox .leftBox span:nth-child(2){
+  top: 66%;
+  width: 100%;
+}
+
+.logoWrap{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logoWrap .logo a img{
+  max-width: 100px;
+  width: 100%;
+  margin: 0 auto 20px;
+}
+
+.header :global(.swiper-wrapper) {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.header :global(.swiper-slide) {
+  width: auto;
+}
+
+.header .rightBox{
+  display: flex;
+  gap: 12px;
+}
+
+.fiexd_head {
+  display: none; /* 기본적으로 숨김 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white; /* 필요 시 배경색 추가 */
+}
+
+.sticky {
+  display: block; /* 스크롤에 의해 활성화되면 보이도록 설정 */
+}
+
+.fiexd_head :global(.swiper-wrapper) {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.fiexd_head :global(.swiper-slide) {
+  width: auto;
+}

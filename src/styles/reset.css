@@ -16,8 +16,10 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
+  font-family: 'Pretendard-Regular';
+  font-size: 16px; 
+  line-height: 22px; 
 }
 
 article, aside, details, figcaption, figure, 
@@ -50,6 +52,7 @@ a,img{
 
 a{
 	text-decoration: none;
+	color: #000;
 }
 
 img{
@@ -76,5 +79,5 @@ body{
   max-width: 640px;
   margin: 0 auto;
   box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.1);
-  min-height: 100vh;
+  min-height: 200vh;
 }
