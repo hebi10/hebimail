@@ -1,0 +1,26 @@
+.adminContainer {
+  padding: 20px;
+}
+
+.sections {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.section {
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.manageBtn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}

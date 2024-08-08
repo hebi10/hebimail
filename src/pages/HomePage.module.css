@@ -1,0 +1,45 @@
+.homeContainer {
+  padding: 20px;
+}
+
+.shopNowBtn {
+  padding: 10px 20px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.featuredProducts {
+  margin-top: 50px;
+}
+
+.productList {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+/* HomePage.module.css */
+
+.swiperButtonPrev,
+.swiperButtonNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.swiperButtonPrev {
+  left: 10px;
+}
+
+.swiperButtonNext {
+  right: 10px;
+}
+
