@@ -1,6 +1,14 @@
-import { createStore } from 'redux';
-import rootReducer from './reducers/rootReducer'; // 경로가 올바른지 확인
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from './reducers/rootReducer';
+import {thunk} from 'redux-thunk';
 
-const store = createStore(rootReducer);
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(thunk as any),
+});
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;

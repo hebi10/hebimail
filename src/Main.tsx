@@ -5,6 +5,7 @@ import FullLayout from './components/layout/FullLayout';
 import LandingLayout from './components/layout/LandingLayout';
 import MyPageLayout from './components/layout/MyPageLayout';
 import UserLayout from './components/layout/UserLayout';
+import LoginLayout from './components/layout/LoginLayout';
 import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CategoryPage';
 import ProductPage from './pages/ProductPage';
@@ -34,9 +35,11 @@ const Main: React.FC = () => {
           <Route element={<MyPageLayout />}>
             <Route path="me" element={<MyPage />} />
           </Route>
+          <Route element={<LoginLayout />}>
+            <Route path="login" element={<LoginPage />} />
+          </Route>
           <Route element={<FullLayout />}>
             <Route path="me/edit" element={<SettingPage />} />
-            <Route path="login" element={<LoginPage />} />
             <Route path="register" element={<SignUpPage />} />
             <Route path="category" element={<CategoryPage />} />
             <Route path="product" element={<ProductPage />} />

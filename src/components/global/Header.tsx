@@ -7,11 +7,11 @@ import icon_search from "../../assets/images/svg/icon_search.svg";
 import icon_user from "../../assets/images/svg/icon_user.svg";
 import Menu from './Menu';
 import Search from './Search';
+import styles from './Header.module.css';
 
 /* swiper */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import styles from './Header.module.css';
 
 const Header: React.FC = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -44,8 +44,8 @@ const Header: React.FC = () => {
     <>
       <Menu onClose={() => setShowMenu(false)} className={`${styles.menu} ${showMenu ? styles.menuVisible : ''}`} />
       <Search onClose={() => setShowSearch(false)} className={`${styles.search} ${showSearch ? styles.searchVisible : ''}`} />
-      <header ref={headerRef} className={styles.header}>
-        <ul className={styles.headBox}>
+      <header ref={headerRef} className={`${styles.header}`}>
+        <ul className={`${styles.headBox} flex-spaceBetween-box`}>
           <li className={styles.leftBox} onClick={() => setShowMenu(true)}>
             <span></span>
             <span></span>

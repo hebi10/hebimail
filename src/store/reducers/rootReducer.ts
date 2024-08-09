@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-import counterReducer from './counterReducer'; // 경로가 올바른지 확인
+import authReducer from './authReducer';
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
+  auth: authReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
-
 export default rootReducer;
