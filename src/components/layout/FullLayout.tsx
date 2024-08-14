@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../global/Header';
 import styles from './FullLayout.module.css';
+import Footer from '../global/Footer';
 
 const FullLayout: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const FullLayout: React.FC = () => {
       <main className={styles.main}>
         <Outlet />
       </main>
-      <footer>Full Layout Footer</footer>
+      <Footer />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { RootState } from '../store/reducers/rootReducer';
@@ -24,18 +24,21 @@ const LoginPage: React.FC = () => {
     });
   };
 
-  const handleLogin = () => {
+  const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     dispatch(login({ id: data.id, password: data.pw }));
   };
 
-  if (isAuthenticated) {
-    navigate('/');
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/hebimail/MyPage');
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <>
       <h2 className={styles.loginLogo}>
-        <Link to="/">
+        <Link to="/hebimail">
           <img src={logo} alt="메인 로고" />
         </Link>
       </h2>
@@ -59,7 +62,35 @@ const LoginPage: React.FC = () => {
           <button className={`btn`} onClick={handleLogin} disabled={loading}>
             {loading ? '로그인 중...' : '로그인'}
           </button>
-          {error && <p className={styles.error}>{error}</p>}
+          {error && <p className={`${styles.error} pt7_18`}>오류 내용: {error}</p>}
+        </div>
+        <div className={`${styles.account} pt7_18`}>
+          <h2>테스트 계정 정보</h2>
+          <p>
+            "id": "admin1234",<br />
+            "password": "adminpassword",<br />
+            "nickname": "Admin"<br />
+            <br />
+            "id": "user1234",<br />
+            "password": "userpassword",<br />
+            "nickname": "User1"<br />
+            <br />
+            "id": "user5678",<br />
+            "password": "userpassword",<br />
+            "nickname": "User2"<br />
+            <br />
+            "id": "user91011",<br />
+            "password": "userpassword",<br />
+            "nickname": "User3"<br />
+            <br />
+            "id": "user1213",<br />
+            "password": "userpassword",<br />
+            "nickname": "User4"<br />
+            <br />
+            "id": "user1415",<br />
+            "password": "userpassword",<br />
+            "nickname": "User5"
+          </p>
         </div>
       </div>
     </>

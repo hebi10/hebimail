@@ -1,10 +1,10 @@
 import React, { useState, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../../store/actions/authActions';
-import { RootState, AppDispatch } from '../../store/store';  // 수정된 부분
+import { RootState, AppDispatch } from '../../store/store';
 
 const AuthComponent: React.FC = () => {
-  const dispatch: AppDispatch = useDispatch();  // dispatch 타입 지정
+  const dispatch: AppDispatch = useDispatch(); 
   const { isAuthenticated, user, loading, error } = useSelector((state: RootState) => state.auth);
   
   const [credentials, setCredentials] = useState({ id: '', password: '' });

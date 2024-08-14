@@ -30,31 +30,31 @@ const Main: React.FC = () => {
       <App>
         <Routes>
           <Route element={<LandingLayout />}>
-            <Route index element={<HomePage />} />
+            <Route path="hebimail/" index element={<HomePage />} />
           </Route>
           <Route element={<MyPageLayout />}>
-            <Route path="me" element={<MyPage />} />
+            <Route path="hebimail/me" element={<MyPage />} />
           </Route>
           <Route element={<LoginLayout />}>
-            <Route path="login" element={<LoginPage />} />
+            <Route path="hebimail/login" element={<LoginPage />} />
           </Route>
           <Route element={<FullLayout />}>
-            <Route path="me/edit" element={<SettingPage />} />
-            <Route path="register" element={<SignUpPage />} />
-            <Route path="category" element={<CategoryPage />} />
-            <Route path="product" element={<ProductPage />} />
-            <Route path="cart" element={<CartPage />} />
-            <Route path="checkout" element={<CheckoutPage />} />
-            <Route path="profile" element={<ProfilePage />} />
-            <Route path="board" element={<BoardPage />} />
-            <Route path="admin" element={<AdminPage />} />
-            <Route path="support" element={<SupportPage />} />
-            <Route path="notice" element={<NoticePage />} />
-            <Route path="faq" element={<FAQPage />} />
-            <Route path="review" element={<ReviewPage />} />
+            <Route path="hebimail/me/edit" element={<SettingPage />} />
+            <Route path="hebimail/register" element={<SignUpPage />} />
+            <Route path="hebimail/category" element={<CategoryPage />} />
+            <Route path="hebimail/product" element={<ProductPage />} />
+            <Route path="hebimail/cart" element={<CartPage />} />
+            <Route path="hebimail/checkout" element={<CheckoutPage />} />
+            <Route path="hebimail/profile" element={<ProfilePage />} />
+            <Route path="hebimail/board" element={<BoardPage />} />
+            <Route path="hebimail/admin" element={<AdminPage />} />
+            <Route path="hebimail/support" element={<SupportPage />} />
+            <Route path="hebimail/notice" element={<NoticePage />} />
+            <Route path="hebimail/faq" element={<FAQPage />} />
+            <Route path="hebimail/review" element={<ReviewPage />} />
           </Route>
           <Route element={<UserLayout />}>
-            <Route path=":userId" element={<UserPage />} />
+            <Route path="hebimail/:userId" element={<UserPage />} />
           </Route>
         </Routes>
       </App>

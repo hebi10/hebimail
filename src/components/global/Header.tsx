@@ -52,7 +52,7 @@ const Header: React.FC = () => {
           </li>
           <li className={styles.logoWrap}>
             <h1 className={styles.logo}>
-              <Link to="/">
+              <Link to="/hebimail">
                 <img src={logo} alt="메인 로고" />
               </Link>
             </h1>
@@ -61,10 +61,10 @@ const Header: React.FC = () => {
             <div className={styles.searchIcon} onClick={() => setShowSearch(true)}>
               <img src={icon_search} alt="검색 아이콘" />
             </div>
-            <Link to="/cart" className={styles.cart}>
+            <Link to="/hebimail/cart" className={styles.cart}>
               <img src={icon_cart} alt="장바구니 아이콘" />
             </Link>
-            <Link to="/login" className={styles.user}>
+            <Link to="/hebimail/login" className={styles.user}>
               <img src={icon_user} alt="유저 아이콘" />
             </Link>
           </li>
@@ -76,7 +76,7 @@ const Header: React.FC = () => {
         >
           {['Category', 'Product', 'Profile', 'Board', 'Support', '', '', ''].map((item, index) => (
             <SwiperSlide key={`${item}-${index}`}>
-              <Link to={`/${item.toLowerCase()}`}>{item}</Link>
+              <Link to={`/hebimail/${item.toLowerCase()}`}>{item}</Link>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -85,16 +85,16 @@ const Header: React.FC = () => {
       <div ref={fixedHeadRef} className={`${styles.fixed_head} ${isSticky ? styles.sticky : ''}`}>
 
         <div className={styles.scrollLogo}>
-          <Link to="/"><img src={logo_mini} alt="메인 로고" /></Link>
+          <Link to="/hebimail"><img src={logo_mini} alt="메인 로고" /></Link>
 
           <div className={styles.linkBox}>
             <div className={styles.searchIcon} onClick={() => setShowSearch(true)}>
               <img src={icon_search} alt="검색 아이콘" />
             </div>
-            <Link to="/cart" className={styles.cart}>
+            <Link to="/hebimail/cart" className={styles.cart}>
               <img src={icon_cart} alt="장바구니 아이콘" />
             </Link>
-            <Link to="/login" className={styles.user}>
+            <Link to="/hebimail/login" className={styles.user}>
               <img src={icon_user} alt="유저 아이콘" />
             </Link>
           </div>
@@ -106,7 +106,7 @@ const Header: React.FC = () => {
         >
           {['Category', 'Product', 'Profile', 'Board', 'Support', '', '', ''].map((item, index) => (
             <SwiperSlide key={`${item}-${index}`}>
-              <Link to={`/${item.toLowerCase()}`}>{item}</Link>
+              <Link to={`/hebimail/${item.toLowerCase()}`}>{item}</Link>
             </SwiperSlide>
           ))}
         </Swiper>
