@@ -52,7 +52,7 @@ const Header: React.FC = () => {
           </li>
           <li className={styles.logoWrap}>
             <h1 className={styles.logo}>
-              <Link to="">
+              <Link to="/">
                 <img src={logo} alt="메인 로고" />
               </Link>
             </h1>

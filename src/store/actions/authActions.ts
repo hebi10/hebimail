@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { instance as axios } from '../../services/api';
 import { AuthActionTypes, AuthAction, User } from '../types';
-import { useUserQuery } from '../../queries/useUserQuery'; // React Query 훅을 불러옵니다.
+import { useUserQuery } from '../../services/queries/useUserQuery';
 
 // 로그인 액션
 export const login = ({id, password}: {id: string, password: string}) => async (dispatch: Dispatch<AuthAction>) => {

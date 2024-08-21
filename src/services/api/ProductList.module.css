@@ -1,0 +1,14 @@
+.productWrap ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 0;
+}
+
+.productWrap ul li{
+  width: 49%;
+}
+
+.productWrap ul li img{
+  width: 100%;
+}

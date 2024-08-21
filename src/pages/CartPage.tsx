@@ -7,11 +7,11 @@ const CartPage: React.FC = () => {
       <h1 className="cart-title">Your Shopping Cart</h1>
       <ul className="cart-list">
         <li className="cart-item">
-          <span className="cart-item-name">Product 1</span>
+          <span className="cart-item-name">Product 1(테스트)</span>
           <span className="cart-item-price">$100</span>
         </li>
         <li className="cart-item">
-          <span className="cart-item-name">Product 2</span>
+          <span className="cart-item-name">Product 2(테스트)</span>
           <span className="cart-item-price">$50</span>
         </li>
       </ul>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -6,16 +6,9 @@ import styles from './HomePage.module.css';
 import { Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
-import ProductList from '../components/common/ProductList';
+import ProductList from '../services/api/ProductList';
 
-import mainBanner01 from '../assets/images/mainBanner/mainBanner01.png';
-import mainBanner02 from '../assets/images/mainBanner/mainBanner02.png';
-import mainBanner03 from '../assets/images/mainBanner/mainBanner03.png';
-const banners = [
-  { link: "javascript:;", src: mainBanner01, alt: "메인 배너 1" },
-  { link: "javascript:;", src: mainBanner02, alt: "메인 배너 2" },
-  { link: "javascript:;", src: mainBanner03, alt: "메인 배너 3" }
-];
+import banners from '../services/data/headBanners';
 
 const HomePage: React.FC = () => {
   return (
@@ -47,9 +40,9 @@ const HomePage: React.FC = () => {
       {/* 문구 */}
       <div className={styles.homeContainer}>
         <div className={styles.banner}>
-          <h1>Welcome to Hebi Mall</h1>
-          <p>Your one-stop shop for all things amazing!</p>
-          <button className={styles.shopNowBtn}>Shop Now</button>
+          <h2>해비몰에 어서오세요 :D</h2>
+          <p>개인 포트폴리오 사이트 입니다. 사용에 주의하세요!</p>
+          <button className={styles.shopNowBtn}>사용방법 보러가기</button>
         </div>
         <section className={styles.featuredProducts}>
           <h2>Featured Products</h2>

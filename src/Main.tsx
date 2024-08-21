@@ -1,4 +1,3 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './components/App';
 import FullLayout from './components/layout/FullLayout';
 import LandingLayout from './components/layout/LandingLayout';
@@ -23,9 +22,30 @@ import MyPage from './pages/MyPage';
 import UserPage from './pages/UserPage';
 import SettingPage from './pages/SettingPage';
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider as ReduxProvider } from 'react-redux';
+import store from './store/store';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
+
+function Provider({ children }: React.PropsWithChildren<{}>) {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReduxProvider store={store}>
+        <BrowserRouter basename="/hebimail">
+          {children}
+        </BrowserRouter>
+      </ReduxProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
+}
+
 const Main: React.FC = () => {
   return (
-    <BrowserRouter basename="/hebimail">
+    <Provider>
       <App>
         <Routes>
           <Route element={<LandingLayout />}>
@@ -57,7 +77,7 @@ const Main: React.FC = () => {
           </Route>
         </Routes>
       </App>
-    </BrowserRouter>
+    </Provider>
   );
 }
 
