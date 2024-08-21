@@ -1,53 +1,30 @@
-import {
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-  LOGOUT,
-} from '../actions/authActions';
+import { AuthState, AuthActionTypes, AuthAction } from '../types';
 
-interface AuthState {
-  isAuthenticated: boolean;
-  user: any | null;
-  loading: boolean;
-  error: string | null;
-}
+const userInfoFromStorage = localStorage.getItem('userInfo') 
+    ? JSON.parse(localStorage.getItem('userInfo') as string) 
+    : null;
 
-const initialState: AuthState = {
-  isAuthenticated: false,
-  user: null,
-  loading: false,
-  error: null,
+    const initialState: AuthState = {
+        userInfo: userInfoFromStorage,
+        user: userInfoFromStorage ? userInfoFromStorage.user : null, 
+        loading: false,
+        error: null,
+        token: null,
+    };
+
+export const authReducer = (state = initialState, action: AuthAction): AuthState => {
+    switch (action.type) {
+        case AuthActionTypes.LOGIN_REQUEST:
+            return { ...state, loading: true };
+        case AuthActionTypes.LOGIN_SUCCESS:
+            return { ...state, loading: false, user: action.payload };
+        case AuthActionTypes.LOGIN_FAILURE:
+            return { ...state, loading: false, error: action.payload };
+        case AuthActionTypes.SET_USER_INFO:
+            return { ...state, user: action.payload };
+        case AuthActionTypes.LOGOUT:
+            return { ...state, userInfo: null, user: null };
+        default:
+            return state;
+    }
 };
-
-export default function authReducer(state = initialState, action: any): AuthState {
-  switch (action.type) {
-    case LOGIN_REQUEST:
-      return {
-        ...state,
-        loading: true,
-        error: null,
-      };
-    case LOGIN_SUCCESS:
-      return {
-        ...state,
-        isAuthenticated: true,
-        user: action.payload,
-        loading: false,
-        error: null,
-      };
-    case LOGIN_FAILURE:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
-    case LOGOUT:
-      return {
-        ...state,
-        isAuthenticated: false,
-        user: null,
-      };
-    default:
-      return state;
-  }
-}

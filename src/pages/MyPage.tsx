@@ -1,32 +1,33 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RootState } from '../store/reducers/rootReducer';
+import useDecodedToken from "../hooks/useDecodedToken";
 
 const MyPage: React.FC = () => {
   const navigate = useNavigate();
-  const user = useSelector((state: RootState) => state.auth.user);
+  const decodedToken = useDecodedToken();
+  const nickname = localStorage.getItem('nickname');
+  const [isCheckingToken, setIsCheckingToken] = useState(true); // 로딩 상태 추가
 
   useEffect(() => {
-    // 쿠키에서 토큰 가져오기
-    const token = document.cookie.split('; ').find(row => row.startsWith('token='))?.split('=')[1];
-
-    if (!token) {
-      // 토큰이 없으면 로그인 페이지로 리다이렉트
-      navigate('/hebimail/login');
-    } else {
-      // 토큰이 있으면 추가 작업 가능
-      console.log('User is authenticated');
+    if (decodedToken === null && !isCheckingToken) {
+      navigate('/login');
+    } else if (decodedToken !== null) {
+      setIsCheckingToken(false); // 토큰 확인 완료 후 로딩 상태 해제
     }
-  }, [navigate]);
+  }, [decodedToken, navigate, isCheckingToken]);
+
+  if (isCheckingToken) {
+    return <p>Loading...</p>; // 토큰 확인 중 로딩 표시
+  }
 
   return (
     <div>
       <h1>My Page</h1>
-      {user ? (
+      {decodedToken ? (
         <div>
-          <p>Name: {user.name}</p>
-          <p>Email: {user.email}</p>
+          <p>ID: {decodedToken.userId}</p> {/* userId 출력 */}
+          <p>Role: {decodedToken.role}</p> {/* role 출력 */}
+          <p>Nickname: {nickname}</p> {/* Nickname 출력 */}
         </div>
       ) : (
         <p>Loading...</p>

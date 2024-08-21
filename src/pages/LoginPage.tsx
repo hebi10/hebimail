@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { RootState } from '../store/reducers/rootReducer';
-import { AppDispatch } from '../store/store';  // store.ts에서 가져옴
+import { AppDispatch } from '../store/store';
 import { login } from '../store/actions/authActions';
 import styles from './LoginPage.module.css';
 import logo from '../assets/images/img/img_logo01.png';
+import { RootState } from '../store/reducers/rootReducer';
+import useDecodedToken from "../hooks/useDecodedToken";
 
 const LoginPage: React.FC = () => {
-  const dispatch: AppDispatch = useDispatch();  // AppDispatch 타입 지정
+  const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error, isAuthenticated } = useSelector((state: RootState) => state.auth);
+  const decodedToken = useDecodedToken();
+  const { loading, error, token } = useSelector((state: RootState) => state.auth); // token 추가
 
-  const [data, setData] = useState({
+  const [data, setData] = useState<{ id: string; pw: string }>({
     id: '',
     pw: '',
   });
@@ -30,15 +32,15 @@ const LoginPage: React.FC = () => {
   };
 
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/hebimail/MyPage');
+    if (decodedToken) {
+      navigate('/me'); // 이미 로그인된 사용자는 마이페이지로 이동
     }
-  }, [isAuthenticated, navigate]);
+  }, [decodedToken, navigate]);
 
   return (
     <>
       <h2 className={styles.loginLogo}>
-        <Link to="/hebimail">
+        <Link to="/">
           <img src={logo} alt="메인 로고" />
         </Link>
       </h2>
@@ -51,6 +53,7 @@ const LoginPage: React.FC = () => {
             placeholder="아이디를 입력해주세요"
             value={data.id}
             onChange={handleInputChange}
+            disabled={loading}
           />
           <input
             type="password"
@@ -58,12 +61,13 @@ const LoginPage: React.FC = () => {
             placeholder="비밀번호를 입력해주세요"
             value={data.pw}
             onChange={handleInputChange}
+            disabled={loading}
           />
           <button className={`btn`} onClick={handleLogin} disabled={loading}>
             {loading ? '로그인 중...' : '로그인'}
           </button>
-          {error && <p className={`${styles.error} pt7_18`}>오류 내용: {error}</p>}
         </div>
+        {error && <div className={styles.errorMessage}>{error}</div>}
         <div className={`${styles.account} pt7_18`}>
           <h2>테스트 계정 정보</h2>
           <p>

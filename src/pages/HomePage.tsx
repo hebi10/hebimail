@@ -6,6 +6,8 @@ import styles from './HomePage.module.css';
 import { Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
+import ProductList from '../components/common/ProductList';
+
 import mainBanner01 from '../assets/images/mainBanner/mainBanner01.png';
 import mainBanner02 from '../assets/images/mainBanner/mainBanner02.png';
 import mainBanner03 from '../assets/images/mainBanner/mainBanner03.png';
@@ -18,6 +20,7 @@ const banners = [
 const HomePage: React.FC = () => {
   return (
     <>
+      {/* 메인 슬라이드 */}
       <div>
         <Swiper
           slidesPerView={1}
@@ -41,6 +44,7 @@ const HomePage: React.FC = () => {
           <div className={styles.swiperButtonNext}>Next</div>
         </Swiper>
       </div>
+      {/* 문구 */}
       <div className={styles.homeContainer}>
         <div className={styles.banner}>
           <h1>Welcome to Hebi Mall</h1>
@@ -54,6 +58,8 @@ const HomePage: React.FC = () => {
           </div>
         </section>
       </div>
+      {/* 상품 영역 */}
+      <ProductList />
     </>
   );
 };
