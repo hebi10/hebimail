@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { instance as axios } from '../api';
+import { instance_render as axios } from '../api';
 
 export const useProductQuery = () => {
   const result = useQuery({
@@ -42,23 +42,22 @@ export const useProductQuery = () => {
 
 export const useFindProductQuery = (id: number) => {
   const result = useQuery({
-    queryKey: ['product'],
+    queryKey: ['product', id],
     queryFn: async () => {
       const { data } = await axios.get(`/products/${id}`);
       return data;
     },
     refetchOnWindowFocus: false,
-    placeholderData: [
-      {
-        "id": 1,
-        "name": "상품 로딩중",
-        "description": "로딩중 1",
-        "price": 100,
-        "imgUrl": "https://placeholder.com/300",
-        "category": "Electronics"
-      },
-    ]
+    placeholderData: {
+      "id": id,
+      "name": "상품 로딩중",
+      "description": `로딩중 ${id}`,
+      "price": 100,
+      "imgUrl": "https://placeholder.com/300",
+      "category": "Electronics"
+    }
   });
 
   return result;
 };
+

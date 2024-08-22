@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-  // baseURL: 'https://node-hebimall.onrender.com',
-  baseURL: 'http://hebi10.cafe24app.com',
+  // baseURL: 'http://hebi10.cafe24app.com',
+  baseURL: 'https://node-hebimall.onrender.com',
 });
 
 // 인터셉터를 추가하여 모든 요청에 토큰을 포함시킵니다.
